@@ -16,7 +16,6 @@ set -g status-left-length 32
 set -g status-right-length 150
 set -g status-interval 5
 
-
 # default statusbar colors
 # set-option -g status-bg colour0
 set-option -g status-fg $tm_color_active
@@ -53,4 +52,4 @@ tm_host="#[fg=$tm_color_feature,bold]#h"
 tm_session_name="#[fg=$tm_color_feature,bold]#S"
 
 set -g status-left $tm_session_name' '
-set -g status-right $tm_tunes' '$tm_date' '$tm_host
+set -g status-right $tm_date' '$tm_host
