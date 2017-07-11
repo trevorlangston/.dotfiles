@@ -101,12 +101,6 @@ match ErrorMsg '\s\+$'
 " ----------------------------
 " Bindings
 " ----------------------------
- 
-" Move between panes
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Clear search highlighting
 nnoremap <backspace> :noh<CR>:<backspace>
@@ -122,13 +116,13 @@ vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
 " You complete me
 set completeopt-=preview
 
-" Tmux
+" Tmux navigator
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> {left-mapping} :tmuxnavigateleft<cr>
-nnoremap <silent> {down-mapping} :tmuxnavigatedown<cr>
-nnoremap <silent> {up-mapping} :tmuxnavigateup<cr>
-nnoremap <silent> {right-mapping} :tmuxnavigateright<cr>
-nnoremap <silent> {previous-mapping} :tmuxnavigateprevious<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 " NerdTree
 " set autoread
