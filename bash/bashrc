@@ -1,0 +1,17 @@
+# vim
+export EDITOR='vim'
+export VISUAL='vim'
+export TERM="xterm-256color"
+alias vim='/usr/local/bin/vim'
+alias tmux="TERM=screen-256color-bce tmux"
+
+# git
+alias ggraph='git log --graph --abbrev-commit --decorate --date=relative --all'
+alias glog='git log --pretty="%h - %s"'
+
+# paths
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# prompt
+export PS1="\nin \[\e[36;40m\]\w\[\e[m\] > "
