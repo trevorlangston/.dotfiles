@@ -18,7 +18,10 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # prompt
-export PS1="\nin \[\e[36;40m\]\w\[\e[m\] > "
+export PS1="\nin \[\e[36m\]\w\[\e[m\] > "
 
 # docker
 alias docker-stop-and-rm='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# tmux
+alias tm='~/.dotfiles/bin/tm.sh'
