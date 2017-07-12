@@ -3,6 +3,7 @@ export MYBASHRC='~/.dotfiles/bash/bashrc'
 export MYVIMRC='~/.dotfiles/vim/vimrc'
 
 # vim
+set -o vi
 export EDITOR='vim'
 export VISUAL='vim'
 export TERM="xterm-256color"
