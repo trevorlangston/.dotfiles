@@ -55,6 +55,8 @@ set shiftwidth=4
 " a tab is 4 spaces
 set tabstop=4
 
+" allow access to system clipboard
+set clipboard=unnamed
 
 " don't beep
 set visualbell
