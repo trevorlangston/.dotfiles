@@ -8,14 +8,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Quramy/tsuquyomi'
-Plugin 'benmills/vimux'
-Plugin 'kien/ctrlp.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'kien/ctrlp.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'othree/html5.vim'
 Plugin 'petdance/ack2'
