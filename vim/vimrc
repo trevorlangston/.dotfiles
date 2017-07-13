@@ -70,7 +70,8 @@ set background=dark
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 
-" Show line numbers
+" Show line relative numbers
+set relativenumber
 set number
 
 " Show max line length marker
