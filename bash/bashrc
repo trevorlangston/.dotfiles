@@ -26,3 +26,8 @@ alias docker-stop-and-rm='docker stop $(docker ps -a -q) && docker rm $(docker p
 
 # tmux
 alias tm='~/.dotfiles/bin/tm.sh'
+
+# useful stuff
+usingport() {
+    lsof -n -i4TCP:"$1" | grep LISTEN
+}
