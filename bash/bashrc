@@ -31,3 +31,6 @@ alias tm='~/.dotfiles/bin/tm.sh'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
+
+# travis
+[ -f /Users/tlangston/.travis/travis.sh ] && source /Users/tlangston/.travis/travis.sh

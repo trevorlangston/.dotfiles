@@ -1,16 +1,16 @@
 " Vundle
 " ':PluginInstall' to install
 " ':PluginUpdate' to update
-set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Quramy/tsuquyomi'
+" Plugin 'Quramy/tsuquyomi'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
+Plugin 'chrisbra/Colorizer'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'fatih/vim-go'
@@ -30,68 +30,46 @@ Plugin 'w0rp/ale'
 call vundle#end()
 filetype plugin indent on
 
-
 " ----------------------------
 " General
 " ----------------------------
 
-" change the mapleader from \ to ,
-let mapleader=","
-
-" hide buffers instead of closing
-set hidden
-
-" don't wrap lines
-set nowrap
-
-" insert spaces with tab
-set expandtab
-    
-" auto indent
-set autoindent
-
-" number of spaces for autoident
-set shiftwidth=4
-
-" a tab is 4 spaces
-set tabstop=4
-
-" allow access to system clipboard
-set clipboard=unnamed
+set nocompatible " vim does not need to be compaible with vi
+let mapleader="," " change the mapleader from \ to ,
+set hidden " hide buffers instead of closing
+set textwidth=0 " do not wrap words (insert)
+set nowrap " do not wrap words (view)
+set showmatch " show matching brackets
+set expandtab " insert spaces with tab
+set autoindent " auto indent
+set shiftwidth=4 " number of spaces for autoident
+set tabstop=4 " one tab is 4 spaces
+set clipboard=unnamed " allow access to system clipboard
+set colorcolumn=100 " Show max line length marker
+set showcmd " Show current command
+set ruler " Show ruler
+set relativenumber " Show relative line numbers
+set number " Show absolute line number on current line
+set diffopt+=vertical " Open diffs vertically
+match ErrorMsg '\s\+$' " Highlight trailing white space
+set ttyfast " smoother redrawing 
+set lazyredraw " only redraw during typing
 
 " don't beep
 set visualbell
 set noerrorbells
 
-" Color scheme and font
-" Favorites : luna, darkburn, onedark, solarized
+" Color scheme, favorites: luna, darkburn, onedark, solarized
 syntax enable
 colorscheme onedark
-set background=dark
 
 " Save temp files in a global directory 
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 
-" Show line relative numbers
-set relativenumber
-set number
-
-" Show max line length marker
-set colorcolumn=100
-
-" Show current command
-set showcmd
-
-" Show ruler
-set ruler
-
-" Open diffs vertically
-set diffopt+=vertical
-
 " Source .vimrc after saving it
 if has("autocmd")
-    autocmd! bufwritepost .vimrc source $MYVIMRC
+    autocmd! bufwritepost *vimrc source $MYVIMRC
 endif
 
 " Search
@@ -99,16 +77,6 @@ set gdefault
 set hlsearch
 set ignorecase
 set smartcase
-
-" Highlight trailing white space
-match ErrorMsg '\s\+$'
-
-" smoother redrawing 
-set ttyfast
-
-" buffer screen updates instead of always updating
-set lazyredraw
-
 
 " ----------------------------
 " Bindings
@@ -121,7 +89,6 @@ nnoremap <backspace> :noh<CR>:<backspace>
 nnoremap <leader>j :%!python -m json.tool<CR>:set ft=javascript<CR>
 vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
 
-
 " ----------------------------
 " Bundles
 " ----------------------------
@@ -131,7 +98,8 @@ set completeopt-=preview
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_semantic_triggers['typescript'] = ['.']
 
 " Tmux navigator
 let g:tmux_navigator_no_mappings = 1
@@ -156,22 +124,16 @@ nmap <C-S> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_winsize = '70%'
 
-"Ale 
+" Aw0rp/ale
 let g:ale_sign_column_always = 1
 let g:ale_lint_delay = '500'
+" let g:ale_linters = {
+" \   'typescript': ['tslint'],
+" \}
 
-" Syntastic
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck', 'go']
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exec = 'eslint_d'
-
-" Typescript
+" Quramy/tsuquyomi
 autocmd QuickFixCmdPost [^l]* nested cwindow " make Quickfix window appear
 autocmd QuickFixCmdPost    l* nested lwindow " make Quickfix window appear
-" let g:syntastic_typescript_checkers = ['tslint']
-" setlocal indentkeys+=0. " automatically indent chained method calls
 
 " Nerd Commenter
 let g:NERDSpaceDelims = 1
@@ -190,18 +152,19 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Airline
 let g:airline#extensions#ale#enabled = 1
 
-"Vimux
+" benmills/vimux
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
-
 
 " ----------------------------
 " Gui
 " ----------------------------
 
-" font
-set guifont=Menlo\ Regular:h15
-
+set guifont=Menlo\ Regular:h14 " font
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 " ----------------------------
 " Languages
@@ -209,6 +172,6 @@ set guifont=Menlo\ Regular:h15
 
 " Go 
 " Use tabs, displayed as 8 spaces
-au BufNewFile,BufRead *.go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
+au BufNewFile,BufRead *.go setlocal noet tabstop=4 shiftwidth=4 softtabstop=4
 let g:go_fmt_fail_silently = 1
 let g:go_list_type = ""
