@@ -10,7 +10,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
-Plugin 'chrisbra/Colorizer'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'fatih/vim-go'
@@ -34,6 +33,7 @@ filetype plugin indent on
 " General
 " ----------------------------
 
+set noswapfile " don't use swap files
 set nocompatible " vim does not need to be compaible with vi
 let mapleader="," " change the mapleader from \ to ,
 set hidden " hide buffers instead of closing
