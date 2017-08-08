@@ -1,0 +1,11 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = trevorlangston
+	email = langston.trevor@gmail.com
+	username = trevorlangston
+[core]
+	excludesfile = /Users/trevorlangston/.gitignore
+
