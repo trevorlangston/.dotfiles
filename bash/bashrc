@@ -2,6 +2,10 @@
 export MYBASHRC='~/.dotfiles/bash/bashrc'
 export MYVIMRC='~/.dotfiles/vim/vimrc'
 
+# general
+alias notes='vim + "$HOME/notes/$(date +%Y)/$(date +%Y%m%d).md"'
+alias todo='vim + "$HOME/notes/todo.md"'
+
 # vim
 set -o vi
 export EDITOR='vim'
@@ -31,6 +35,7 @@ alias tm='~/.dotfiles/bin/tm.sh'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
+alias ll='ls -l'
 
 # travis
 [ -f /Users/tlangston/.travis/travis.sh ] && source /Users/tlangston/.travis/travis.sh
