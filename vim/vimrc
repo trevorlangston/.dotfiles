@@ -121,9 +121,9 @@ endif
 
 " Search
 set gdefault
-set hlsearch
 set ignorecase " ignore casing in search
 set smartcase " unless search contains a capital
+set hlsearch
 
 " ----------------------------
 " Colors
@@ -157,6 +157,9 @@ colorscheme onedark
 
 " Clear search highlighting
 nnoremap <backspace> :noh<CR>:<backspace>
+
+" Don't jump on hlsearch
+nnoremap * *``
 
 " Pretty-print JSON with \j. Works on a selection or a whole buffer.
 nnoremap <leader>j :%!python -m json.tool<CR>:set ft=javascript<CR>

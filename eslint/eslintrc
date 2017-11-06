@@ -3,6 +3,7 @@
   "ecmaFeatures": {
     "modules": true,
     "spread" : true,
+    "jsx" : true,
     "restParams" : true
   },
   "env" : {
@@ -12,7 +13,9 @@
   },
   "rules" : {
     "no-unused-vars" : 2,
-    "no-undef" : 2
+    "no-undef" : 2,
+    "react/jsx-uses-react" : 2,
+    "react/jsx-uses-vars" : 2
   },
   "parserOptions": {
     "sourceType": "module"
