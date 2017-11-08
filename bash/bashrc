@@ -1,10 +1,10 @@
 # common variables
-export MYBASHRC='~/.dotfiles/bash/bashrc'
-export MYVIMRC='~/.dotfiles/vim/vimrc'
+export MYBASHRC='$HOME/.dotfiles/bash/bashrc'
+export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 
 # general
-alias notes='vim + "$HOME/notes/$(date +%Y)/$(date +%Y%m%d).md"'
-alias todo='vim + "$HOME/notes/todo.md"'
+alias notes='vim + "$HOME/src/gitlab.com/trevorlangston/notes/$(date +%Y)/$(date +%Y%m%d).md"'
+alias todo='vim + "$HOME/src/gitlab.com/trevorlangston/notes/todo.md"'
 
 # vim
 set -o vi
@@ -15,12 +15,13 @@ alias vim='/usr/local/bin/vim'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # git
+alias clone='~/src/github.com/trevorlangston/clone/clone.sh'
 alias ggraph='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog='git log --pretty="%h - %s"'
 
 # paths
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.yarn/bin
 
 # prompt
 export PS1="\nin \[\e[36m\]\w\[\e[m\] > "
@@ -36,6 +37,7 @@ usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
 alias ll='ls -l'
+alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 
 # travis
 [ -f /Users/tlangston/.travis/travis.sh ] && source /Users/tlangston/.travis/travis.sh
