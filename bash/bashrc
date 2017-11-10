@@ -3,8 +3,8 @@ export MYBASHRC='$HOME/.dotfiles/bash/bashrc'
 export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 
 # general
-alias notes='vim + "$HOME/src/gitlab.com/trevorlangston/notes/$(date +%Y)/$(date +%Y%m%d).md"'
-alias todo='vim + "$HOME/src/gitlab.com/trevorlangston/notes/todo.md"'
+alias notes='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/$(date +%Y)/$(date +%m)/$(date +%Y%m%d).md"'
+alias todo='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/todo.md"'
 
 # vim
 set -o vi
