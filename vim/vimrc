@@ -46,6 +46,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'stanangeloff/php.vim'
+Plugin 'hashivim/vim-vagrant'
+Plugin 'jwalton512/vim-blade'
 
 " Colors
 " ----------------------------
@@ -102,17 +104,20 @@ set showmatch " show matching brackets
 set visualbell
 set noerrorbells " don't beep
 
-" Text
-match ErrorMsg '\s\+$' " Highlight trailing white space
+" Editing
 set autoindent " auto indent
-set diffopt+=vertical " Open diffs vertically
+set backspace=2 " backspace works like most other programs
 set expandtab " insert spaces with tab
-set nowrap " do not wrap words (view)
 set shiftwidth=2 " number of spaces for autoident
 set spelllang=en " spell checker
 set tabstop=2 " one tab is 4 spaces
-set textwidth=0 " do not wrap words (insert)
+
+" Text Display
+match ErrorMsg '\s\+$' " Highlight trailing white space
 set conceallevel=1 " enable concealing characters
+set diffopt+=vertical " Open diffs vertically
+set nowrap " do not wrap words (view)
+set textwidth=0 " do not wrap words (insert)
 
 " Save temp files in a global directory
 set directory=~/.vim/tmp
