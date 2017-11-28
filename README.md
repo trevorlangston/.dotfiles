@@ -1,6 +1,6 @@
 # Dotfiles
 
-## Setup (for osx)
+## Setup (for macOS)
 
 ### Bash 
 1. `echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" > ~/.bash_profile`

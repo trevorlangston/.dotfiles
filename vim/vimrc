@@ -41,13 +41,14 @@ Plugin 'petdance/ack2'
 " Plugin 'sheerun/vim-polyglot' " messing up js indenting
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'fatih/vim-go'
+Plugin 'hashivim/vim-vagrant'
+Plugin 'jwalton512/vim-blade'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'posva/vim-vue'
 Plugin 'stanangeloff/php.vim'
-Plugin 'hashivim/vim-vagrant'
-Plugin 'jwalton512/vim-blade'
 
 " Colors
 " ----------------------------
@@ -108,9 +109,9 @@ set noerrorbells " don't beep
 set autoindent " auto indent
 set backspace=2 " backspace works like most other programs
 set expandtab " insert spaces with tab
-set shiftwidth=2 " number of spaces for autoident
+set shiftwidth=4 " number of spaces for autoident
 set spelllang=en " spell checker
-set tabstop=2 " one tab is 4 spaces
+set tabstop=4 " one tab is 4 spaces
 
 " Text Display
 match ErrorMsg '\s\+$' " Highlight trailing white space
@@ -207,9 +208,10 @@ set statusline+=%#warningmsg#
 set statusline+=%*
 
 " Ctrlsf
-nmap <C-S> <Plug>CtrlSFPrompt
+nmap <C-f> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_winsize = '70%'
+let g:ctrlsf_ignore_dir = ['node_modules', 'vendor']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
 
 " w0rp/ale
@@ -235,6 +237,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files=0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " benmills/vimux
