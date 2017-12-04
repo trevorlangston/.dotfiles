@@ -21,7 +21,7 @@ alias glog='git log --pretty="%h - %s"'
 
 # paths
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.yarn/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.cargo/bin
 
 # prompt
 export PS1="\n\[\e[36m\]\w\[\e[m\] > "
