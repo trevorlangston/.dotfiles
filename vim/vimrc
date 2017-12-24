@@ -40,6 +40,7 @@ Plugin 'petdance/ack2'
 " Plugin 'Quramy/tsuquyomi'
 " Plugin 'sheerun/vim-polyglot' " messing up js indenting
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'fatih/vim-go'
 Plugin 'hashivim/vim-vagrant'
 Plugin 'jwalton512/vim-blade'
@@ -90,8 +91,12 @@ set lazyredraw " only redraw during typing
 set ttyfast " smoother redrawing
 
 " Buffers
-set hidden " hide buffers instead of closing
+" set hidden " hide buffers instead of closing
 set noswapfile " don't use swap files
+
+" Persist undo history without hidden buffers
+set undofile " use an undo file
+set undodir=~/.vim/.vimundo/ " remember to make this dir
 
 " Visual
 set colorcolumn=100 " Show max line length marker
@@ -136,6 +141,10 @@ set gdefault
 set ignorecase " ignore casing in search
 set smartcase " unless search contains a capital
 set hlsearch
+
+" insert newlines without entering insert mode
+nnoremap o o<Esc>
+nnoremap O O<Esc>
 
 " ----------------------------
 " Colors
@@ -259,6 +268,26 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \}
+
+" arnaud-lb/vim-php-namespace
+" hit \u in normal or insert mode to import the class or function under the cursor
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
+" hit \e in normal or insert mode to expand the name to a fully qualified name
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+" sort dependencies when one is inserted
+let g:php_namespace_sort_after_insert = 1
 
 " ----------------------------
 " Gui
