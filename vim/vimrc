@@ -1,6 +1,10 @@
 " Vundle
 " PluginInstall to install
 " PluginUpdate to update
+"
+" If seeing YouCompleteMe errors after :PluginInstall, cd to
+" ~/.vim/bundle/youcompleteme and run ./install.py
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Editing
 " ----------------------------
+Plugin 'Yggdroot/indentLine' " show leading whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
@@ -59,6 +64,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'itchyny/lightline.vim'
 Plugin 'joshdick/onedark.vim'
+Plugin 'ap/vim-css-color'
 
 call vundle#end()
 
@@ -114,9 +120,9 @@ set noerrorbells " don't beep
 set autoindent " auto indent
 set backspace=2 " backspace works like most other programs
 set expandtab " insert spaces with tab
-set shiftwidth=4 " number of spaces for autoident
+set shiftwidth=2 " number of spaces for autoident
 set spelllang=en " spell checker
-set tabstop=4 " one tab is 4 spaces
+set tabstop=2 " one tab is 2 spaces
 
 " Text Display
 match ErrorMsg '\s\+$' " Highlight trailing white space
@@ -143,8 +149,7 @@ set smartcase " unless search contains a capital
 set hlsearch
 
 " insert newlines without entering insert mode
-nnoremap o o<Esc>
-nnoremap O O<Esc>
+nmap <CR> o<Esc>
 
 " ----------------------------
 " Colors
@@ -191,6 +196,11 @@ vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
 " Bundles
 " ----------------------------
 
+" 'Yggdroot/indentLine'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '.'
+let g:indentLine_color_term = 240
+
 " You complete me
 set completeopt-=preview
 if !exists("g:ycm_semantic_triggers")
@@ -220,15 +230,18 @@ set statusline+=%*
 nmap <C-f> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_winsize = '70%'
-let g:ctrlsf_ignore_dir = ['node_modules', 'vendor']
+let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
 
 " w0rp/ale
 " let g:ale_lint_delay = '500'
 let g:ale_javascript_eslint_executable = '/Users/trevor/.yarn/bin/eslint'
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
 
 " Quramy/tsuquyomi
 autocmd QuickFixCmdPost [^l]* nested cwindow " make Quickfix window appear
@@ -247,6 +260,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
+let g:ctrlp_show_hidden=1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " benmills/vimux

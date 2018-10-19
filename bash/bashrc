@@ -2,6 +2,9 @@
 export MYBASHRC='$HOME/.dotfiles/bash/bashrc'
 export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 
+# tokens, etc
+source $HOME/.secrets.sh
+
 # general
 alias notes='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/$(date +%Y)/$(date +%m)/$(date +%Y%m%d).md"'
 alias todo='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/todo.md"'
@@ -36,7 +39,7 @@ alias tm='~/.dotfiles/bin/tm.sh'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
-alias ll='ls -l'
+alias ll='ls -lah'
 alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 
 # travis
