@@ -1,3 +1,6 @@
+" Reload vimrc with :so $MYVIMRC
+"
+"
 " Vundle
 " PluginInstall to install
 " PluginUpdate to update
@@ -200,6 +203,7 @@ vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '.'
 let g:indentLine_color_term = 240
+let g:indentLine_enabled = 0
 
 " You complete me
 set completeopt-=preview
