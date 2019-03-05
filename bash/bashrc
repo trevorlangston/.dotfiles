@@ -1,13 +1,8 @@
+if [ -f ~/.bash_workrc ]; then . ~/.bash_workrc; fi
+
 # common variables
 export MYBASHRC='$HOME/.dotfiles/bash/bashrc'
 export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
-
-# tokens, etc
-source $HOME/.secrets.sh
-
-# general
-alias notes='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/$(date +%Y)/$(date +%m)/$(date +%Y%m%d).md"'
-alias todo='cd ~/src/gitlab.com/trevorlangston/notes && vim + "$HOME/src/gitlab.com/trevorlangston/notes/todo.md"'
 
 # vim
 set -o vi
@@ -22,10 +17,6 @@ alias clone='~/src/github.com/trevorlangston/clone/clone.sh'
 alias ggraph='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog='git log --pretty="%h - %s"'
 
-# paths
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.cargo/bin
-
 # prompt
 export PS1="\n\[\e[36m\]\w\[\e[m\] > "
 
@@ -36,16 +27,8 @@ alias docker-stop-and-rm='docker stop $(docker ps -a -q) && docker rm $(docker p
 alias tm='~/.dotfiles/bin/tm.sh'
 
 # useful stuff
+alias ll='ls -lah'
+alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
-alias ll='ls -lah'
-alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
-
-# travis
-[ -f /Users/tlangston/.travis/travis.sh ] && source /Users/tlangston/.travis/travis.sh
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
