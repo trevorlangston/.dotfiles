@@ -43,31 +43,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
 
-" Languages
-" ----------------------------
-" Plugin 'Quramy/tsuquyomi'
-" Plugin 'sheerun/vim-polyglot' " messing up js indenting
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'fatih/vim-go'
-Plugin 'hashivim/vim-vagrant'
-Plugin 'jwalton512/vim-blade'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/html5.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'posva/vim-vue'
-Plugin 'stanangeloff/php.vim'
-
 " Colors
 " ----------------------------
-" Plugin 'dracula/vim'
-" Plugin 'flazz/vim-colorschemes'
+Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'itchyny/lightline.vim'
 Plugin 'joshdick/onedark.vim'
-Plugin 'ap/vim-css-color'
 
 call vundle#end()
 
@@ -92,9 +73,6 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 
-" Color scheme, favorites: darkburn, onedark
-colorscheme onedark
-
 " Rendering
 set lazyredraw " only redraw during typing
 set ttyfast " smoother redrawing
@@ -108,11 +86,11 @@ set undofile " use an undo file
 set undodir=~/.vim/.vimundo/ " remember to make this dir
 
 " Visual
-set colorcolumn=100 " Show max line length marker
-set number " Show absolute line number on current line
-set relativenumber " Show relative line numbers
-set ruler " Show ruler
-set showcmd " Show current command
+set colorcolumn=100 " show max line length marker
+set number " show absolute line number on current line
+set relativenumber " show relative line numbers
+set ruler " show ruler
+set showcmd " show current command
 set showmatch " show matching brackets
 
 " Error sounds
@@ -123,12 +101,12 @@ set noerrorbells " don't beep
 set autoindent " auto indent
 set backspace=2 " backspace works like most other programs
 set expandtab " insert spaces with tab
-set shiftwidth=2 " number of spaces for autoident
+set shiftwidth=4 " number of spaces for autoident
 set spelllang=en " spell checker
-set tabstop=2 " one tab is 2 spaces
+set tabstop=4 " one tab is 4 spaces
 
 " Text Display
-match ErrorMsg '\s\+$' " Highlight trailing white space
+match ErrorMsg '\s\+$' " highlight trailing white space
 set conceallevel=1 " enable concealing characters
 set diffopt+=vertical " Open diffs vertically
 set nowrap " do not wrap words (view)
@@ -157,6 +135,9 @@ nmap <CR> o<Esc>
 " ----------------------------
 " Colors
 " ----------------------------
+
+" Color scheme, favorites: darkburn, onedark
+colorscheme onedark
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -221,8 +202,6 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 " NerdTree
-" set autoread
-" autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -238,7 +217,6 @@ let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
 
 " w0rp/ale
-" let g:ale_lint_delay = '500'
 let g:ale_javascript_eslint_executable = '/Users/trevor/.yarn/bin/eslint'
 let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
@@ -271,42 +249,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 
-" pangloss/vim-javascript
-let g:javascript_conceal_arrow_function = "⇒"
-
-" mxw/vim-jsx
-let g:jsx_ext_required = 0
-
-" Valloric/MatchTagAlways
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'php' : 1,
-    \ 'javascript.jsx' : 1,
-    \ 'markdown' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \}
-
-" arnaud-lb/vim-php-namespace
-" hit \u in normal or insert mode to import the class or function under the cursor
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-" hit \e in normal or insert mode to expand the name to a fully qualified name
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-" sort dependencies when one is inserted
-let g:php_namespace_sort_after_insert = 1
-
 " ----------------------------
 " Gui
 " ----------------------------
@@ -316,13 +258,3 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-
-" ----------------------------
-" Languages
-" ----------------------------
-
-" Go
-" Use tabs, displayed as 8 spaces
-au BufNewFile,BufRead *.go setlocal noet tabstop=4 shiftwidth=4 softtabstop=4
-let g:go_fmt_fail_silently = 1
-let g:go_list_type = ""
