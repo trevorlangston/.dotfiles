@@ -1,4 +1,4 @@
-if [ -f ~/.bash_workrc ]; then . ~/.bash_workrc; fi
+if [ -f ~/.bashrc.work ]; then . ~/.bashrc.work; fi
 
 # common variables
 export MYBASHRC='$HOME/.dotfiles/bash/bashrc'

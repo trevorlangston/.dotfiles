@@ -1,12 +1,10 @@
 " Reload vimrc with :so $MYVIMRC
-"
-"
+
+" -------------------------------------------------------------------------------------------------
 " Vundle
+" -------------------------------------------------------------------------------------------------
 " PluginInstall to install
 " PluginUpdate to update
-"
-" If seeing YouCompleteMe errors after :PluginInstall, cd to
-" ~/.vim/bundle/youcompleteme and run ./install.py
 
 filetype off
 
@@ -16,7 +14,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Editing
-" ----------------------------
 Plugin 'Yggdroot/indentLine' " show leading whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdcommenter'
@@ -25,26 +22,21 @@ Plugin 'valloric/youcompleteme'
 Plugin 'w0rp/ale' " asynch linting
 
 " Git
-" ----------------------------
 Plugin 'tpope/vim-fugitive'
 
 " TMUX
-" ----------------------------
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Navigation
-" ----------------------------
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 
 " Search
-" ----------------------------
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
 
 " Colors
-" ----------------------------
 Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
@@ -52,9 +44,9 @@ Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
 
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 " General
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 
 " Change the mapleader from \ to ,
 let mapleader=","
@@ -132,9 +124,9 @@ set hlsearch
 " insert newlines without entering insert mode
 nmap <CR> o<Esc>
 
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 " Colors
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 
 " Color scheme, favorites: darkburn, onedark
 colorscheme onedark
@@ -162,9 +154,9 @@ let g:airline_theme='onedark'
 set laststatus=2
 colorscheme onedark
 
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 " Bindings
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 
 " Clear search highlighting
 nnoremap <backspace> :noh<CR>:<backspace>
@@ -176,9 +168,9 @@ nnoremap * *``
 nnoremap <leader>j :%!python -m json.tool<CR>:set ft=javascript<CR>
 vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
 
-" ----------------------------
-" Bundles
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
+" Plugins
+" -------------------------------------------------------------------------------------------------
 
 " 'Yggdroot/indentLine'
 let g:indentLine_leadingSpaceEnabled = 1
@@ -213,17 +205,13 @@ set statusline+=%*
 nmap <C-f> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_winsize = '70%'
-let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist']
+let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist', 'build']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
 
 " w0rp/ale
-let g:ale_javascript_eslint_executable = '/Users/trevor/.yarn/bin/eslint'
 let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
 
 " Quramy/tsuquyomi
 autocmd QuickFixCmdPost [^l]* nested cwindow " make Quickfix window appear
@@ -249,12 +237,25 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 " Gui
-" ----------------------------
+" -------------------------------------------------------------------------------------------------
 
 set guifont=Menlo\ Regular:h14 " font
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
+" -------------------------------------------------------------------------------------------------
+" Source files
+" -------------------------------------------------------------------------------------------------
+
+" Source file if it exists
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
+call SourceIfExists("~/.vimrc.work")
