@@ -76,6 +76,9 @@ set noswapfile " don't use swap files
 " Persist undo history without hidden buffers
 set undofile " use an undo file
 set undodir=~/.vim/.vimundo/ " remember to make this dir
+set undolevels=1000 " how many undos
+set undoreload=10000 " number of lines to save for undo
+
 
 " Visual
 set colorcolumn=100 " show max line length marker

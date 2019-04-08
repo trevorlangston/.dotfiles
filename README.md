@@ -17,6 +17,7 @@
 3. `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 4. Launch vim and run `:PluginInstall`
 5. Follow special instructions for [youcompleteme](https://github.com/Valloric/YouCompleteMe)
+6. `mkdir -p ~/.vim/.vimundo`
 
 ### Git
 1. `git config --global core.excludesfile ~/.gitignore` 
