@@ -23,3 +23,6 @@
 1. `git config --global core.excludesfile ~/.gitignore` 
 2. `ln -s ~/.dotfiles/git/gitignore ~/.gitignore`
 3. `ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig`
+
+### Alacritty
+1. `ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml`
