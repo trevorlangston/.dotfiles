@@ -24,7 +24,7 @@ export PS1="\n\[\e[36m\]\w\[\e[m\] > "
 alias tm='~/.dotfiles/bin/tm.sh'
 
 # useful stuff
-alias ll='ls -lah'
+alias ll='ls -lahG'
 alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
