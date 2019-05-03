@@ -191,6 +191,7 @@ let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_winsize = '70%'
 let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist', 'build']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
+let g:ctrlsf_auto_focus = { "at": "start" }
 
 " w0rp/ale
 let g:ale_lint_on_enter = 1
