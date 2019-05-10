@@ -31,6 +31,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Navigation
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " Search
 Plugin 'dyng/ctrlsf.vim'
@@ -122,6 +123,10 @@ set ignorecase " ignore casing in search
 set smartcase " unless search contains a capital
 set hlsearch
 
+" Ctags
+" look in the current directory for tags, and work up the tree towards root until one is found
+set tags=./tags;/
+
 " insert newlines without entering insert mode
 nmap <CR> o<Esc>
 
@@ -187,9 +192,9 @@ set statusline+=%*
 
 " Ctrlsf
 nmap <C-f> <Plug>CtrlSFPrompt
-let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_default_root = 'cwd'
 let g:ctrlsf_winsize = '70%'
-let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist', 'build']
+let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist', 'build', 'tags']
 let g:ctrlsf_ackprg = "/usr/local/bin/ack"
 let g:ctrlsf_auto_focus = { "at": "start" }
 
@@ -221,6 +226,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " benmills/vimux
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
+
+" ludovicchabant/vim-gutentags
+let g:gutentags_project_root = ['.puttagshere']
+let g:gutentags_add_default_project_roots = 0
 
 " -------------------------------------------------------------------------------------------------
 " Gui
