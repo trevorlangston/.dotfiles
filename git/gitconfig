@@ -7,4 +7,4 @@
 	email = langston.trevor@gmail.com
 	username = trevorlangston
 [core]
-	excludesfile = /Users/trevorlangston/.gitignore
+	excludesfile = ~/.gitignore

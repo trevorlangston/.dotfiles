@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Editing
 Plugin 'Yggdroot/indentLine' " show leading whitespace
-" Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
@@ -112,7 +111,6 @@ set backupdir=~/.vim/tmp
 
 " Source .vimrc after saving it
 " Airline disapears on save without a refresh
-" vim-better-whitespace stops highlighting as well
 if has("autocmd")
     autocmd! BufWritePost *vimrc source $MYVIMRC | AirlineRefresh
 endif
