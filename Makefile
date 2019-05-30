@@ -37,6 +37,7 @@ packages: | brew
 cask: | brew taps
 	brew cask reinstall \
 		alacritty \
+		flux \
 		google-chrome \
 		slack \
 		spectacle \
