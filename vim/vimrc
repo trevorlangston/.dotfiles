@@ -37,7 +37,6 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
 
 " Colors
-" Plugin 'dracula/vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joshdick/onedark.vim'
@@ -57,53 +56,53 @@ filetype plugin indent on
 " Allow access to system clipboard
 set clipboard=unnamed
 
-" Vim does not need to be compaible with vi
+" vim does not need to be compaible with vi
 set nocompatible
 
 " Syntax
-syntax enable " enable highlighting
-set regexpengine=1 " faster
+syntax enable                   " enable highlighting
+set regexpengine=1              " faster
 
 " Rendering
-set lazyredraw " only redraw during typing
-set ttyfast " smoother redrawing
+set lazyredraw                  " only redraw during typing
+set ttyfast                     " smoother redrawing
 
 " Buffers
-" set hidden " hide buffers instead of closing
-set noswapfile " don't use swap files
+" set hidden                    " hide buffers instead of closing
+set noswapfile                  " don't use swap files
 
 " Persist undo history without hidden buffers
-set undofile " use an undo file
-set undodir=~/.vim/.vimundo/ " remember to make this dir
-set undolevels=1000 " how many undos
-set undoreload=10000 " number of lines to save for undo
+"
+set undofile                    " use an undo file
+set undodir=~/.vim/.vimundo/    " remember to make this dir
+set undolevels=1000             " how many undos
+set undoreload=10000            " number of lines to save for undo
 
 " Visual
-set colorcolumn=100 " show max line length marker
-set number " show absolute line number on current line
-set relativenumber " show relative line numbers
-set ruler " show ruler
-set showcmd " show current command
-set showmatch " show matching brackets
+set number                      " show absolute line number on current line
+set relativenumber              " show relative line numbers
+set ruler                       " show ruler in status line
+set showcmd                     " show current command
+set showmatch                   " show matching brackets
 
 " Error sounds
 set visualbell
-set noerrorbells " don't beep
+set noerrorbells                " don't beep
 
 " Editing
-set autoindent " auto indent
-set backspace=2 " backspace works like most other programs
-set expandtab " insert spaces with tab
-set shiftwidth=4 " number of spaces for autoident
-set spelllang=en " spell checker
-set tabstop=4 " one tab is 4 spaces
+set autoindent                  " auto indent
+set backspace=2                 " backspace works like most other programs
+set expandtab                   " insert spaces with tab
+set shiftwidth=4                " number of spaces for autoident
+set spelllang=en                " spell checker
+set tabstop=4                   " one tab is 4 spaces
 
 " Text Display
-match ErrorMsg '\s\+$' " highlight trailing white space
-set conceallevel=1 " enable concealing characters
-set diffopt+=vertical " Open diffs vertically
-set nowrap " do not wrap words (view)
-set textwidth=0 " do not wrap words (insert)
+match ErrorMsg '\s\+$'          " highlight trailing white space
+set conceallevel=0              " disable concealing characters
+set diffopt+=vertical           " Open diffs vertically
+set nowrap                      " do not wrap words (view)
+set textwidth=0                 " do not wrap words (insert)
 
 " Save temp files in a global directory
 set directory=~/.vim/tmp
@@ -116,23 +115,20 @@ if has("autocmd")
 endif
 
 " Search
-set gdefault
-set ignorecase " ignore casing in search
-set smartcase " unless search contains a capital
-set hlsearch
+set gdefault                    " substitute all matches on a line by default, 'g' flag toggles
+set ignorecase                  " ignore casing in search
+set smartcase                   " unless search contains a capital
+set hlsearch                    " highlight all matches of previous search pattern
 
-" Ctags
-" look in the current directory for tags, and work up the tree towards root until one is found
+" Ctags - look in the current directory for tags, and work up the tree towards
+" root until one is found
 set tags=./tags;/
 
-" insert newlines without entering insert mode
-nmap <CR> o<Esc>
 
 " -------------------------------------------------------------------------------------------------
 " Colors
 " -------------------------------------------------------------------------------------------------
 
-" Color scheme, favorites: darkburn, onedark
 colorscheme onedark
 
 let g:airline_section_y = ''
@@ -145,15 +141,9 @@ set laststatus=2
 " Bindings
 " -------------------------------------------------------------------------------------------------
 
-" Clear search highlighting
-nnoremap <backspace> :noh<CR>:<backspace>
-
-" Don't jump on hlsearch
-nnoremap * *``
-
-" Pretty-print JSON with \j. Works on a selection or a whole buffer.
-nnoremap <leader>j :%!python -m json.tool<CR>:set ft=javascript<CR>
-vnoremap <leader>j :!python -m json.tool<CR>:set ft=javascript<CR>
+nnoremap <backspace> :noh<CR>:<backspace>   " clear search highlighting
+nnoremap * *``                              " don't jump on hlsearch
+nmap <CR> o<Esc>                            " insert newlines without entering insert mode
 
 " -------------------------------------------------------------------------------------------------
 " Plugins
@@ -165,14 +155,14 @@ let g:indentLine_leadingSpaceChar = '.'
 let g:indentLine_color_term = 240
 let g:indentLine_enabled = 0
 
-" You complete me
+" valloric/youcompleteme
 set completeopt-=preview
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_min_num_of_chars_for_completion = 2
 
-" Tmux navigator
+" christoomey/vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
@@ -180,15 +170,11 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-" NerdTree
+" scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Statusline
-set statusline+=%#warningmsg#
-set statusline+=%*
-
-" Ctrlsf
+" dyng/ctrlsf
 nmap <C-f> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'cwd'
 let g:ctrlsf_winsize = '70%'
@@ -201,11 +187,7 @@ let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
 
-" Quramy/tsuquyomi
-autocmd QuickFixCmdPost [^l]* nested cwindow " make Quickfix window appear
-autocmd QuickFixCmdPost    l* nested lwindow " make Quickfix window appear
-
-" Nerd Commenter
+" scrooloose/nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
@@ -214,7 +196,7 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-" CtrlP
+" kien/ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_files=0
@@ -233,11 +215,11 @@ let g:gutentags_add_default_project_roots = 0
 " Gui
 " -------------------------------------------------------------------------------------------------
 
-set guifont=Menlo\ Regular:h14 " font
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+set guifont=Inconsolata\ Regular:h15    " font
+set guioptions-=m                       " remove menu bar
+set guioptions-=T                       " remove toolbar
+set guioptions-=r                       " remove right-hand scroll bar
+set guioptions-=L                       " remove left-hand scroll bar
 
 " -------------------------------------------------------------------------------------------------
 " Source files
