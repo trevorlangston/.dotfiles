@@ -14,7 +14,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Editing
-Plugin 'Yggdroot/indentLine' " show leading whitespace
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
@@ -100,7 +99,7 @@ set tabstop=4                   " one tab is 4 spaces
 " Text Display
 match ErrorMsg '\s\+$'          " highlight trailing white space
 set conceallevel=0              " disable concealing characters
-set diffopt+=vertical           " Open diffs vertically
+set diffopt+=vertical           " open diffs vertically
 set nowrap                      " do not wrap words (view)
 set textwidth=0                 " do not wrap words (insert)
 
@@ -148,12 +147,6 @@ nmap <CR> o<Esc>                            " insert newlines without entering i
 " -------------------------------------------------------------------------------------------------
 " Plugins
 " -------------------------------------------------------------------------------------------------
-
-" 'Yggdroot/indentLine'
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '.'
-let g:indentLine_color_term = 240
-let g:indentLine_enabled = 0
 
 " valloric/youcompleteme
 set completeopt-=preview

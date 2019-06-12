@@ -3,13 +3,14 @@ BREW := /usr/local/bin/brew
 
 .PHONEY: install update
 
-install: | core link taps packages cask bash vim
+install: | core link taps packages cask bash vim tmux
 
 update:
 	@brew update
 	@brew upgrade
 	@brew cask upgrade
 	@vim +PluginUpdate +qall
+	@$(HOME)/.tmux/plugins/tpm/bin/update_plugins all
 
 core:
 	@if ! xcode-select -p 1>/dev/null; then xcode-select --install; fi
@@ -52,6 +53,9 @@ vim: | link
 	@git clone https://github.com/VundleVim/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 	@vim +PluginInstall +qall
 	@$(HOME)/.vim/bundle/YouCompleteMe/install.py
+
+tmux: | link # TODO
+	@if "test ! -d ~/.tmux/plugins/tpm" "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 link:
 	@ln -fs $(PWD)/vim/vimrc $(HOME)/.vimrc
