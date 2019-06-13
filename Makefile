@@ -1,7 +1,7 @@
 DOTFILES = $(PWD)
 BREW := /usr/local/bin/brew
 
-.PHONEY: install update
+.PHONY: install update
 
 install: | core link taps packages cask bash vim tmux
 
@@ -54,9 +54,12 @@ vim: | link
 	@vim +PluginInstall +qall
 	@$(HOME)/.vim/bundle/YouCompleteMe/install.py
 
-tmux: | link # TODO
-	@if "test ! -d ~/.tmux/plugins/tpm" "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
-
+tmux: | link
+	@if [ ! -d $(HOME)/.tmux/plugins/tpm ]; \
+		then \
+			git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm; \
+			$(HOME)/.tmux/plugins/tpm/bin/install_plugins; \
+		fi
 link:
 	@ln -fs $(PWD)/vim/vimrc $(HOME)/.vimrc
 	@ln -fs $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
