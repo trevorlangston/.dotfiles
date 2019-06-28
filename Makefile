@@ -1,30 +1,45 @@
 DOTFILES = $(PWD)
 BREW := /usr/local/bin/brew
+UNAME := $(shell uname)
+objects = link vim tmux
 
-.PHONY: install update
+ifeq ($(UNAME), Linux)
+	objects := packages-ubuntu $(objects)
+else
+	objects := core taps bash packages-mac $(objects)
+endif
 
-install: | core link taps packages cask bash vim tmux
+.PHONY: install
+install: $(objects)
 
+.PHONY: update
 update:
-	@brew update
-	@brew upgrade
-	@brew cask upgrade
-	@vim +PluginUpdate +qall
-	@$(HOME)/.tmux/plugins/tpm/bin/update_plugins all
+	vim +PluginUpdate +qall
+	$(HOME)/.tmux/plugins/tpm/bin/update_plugins all
+
+ifeq ($(UNAME), Linux)
+	sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
+else
+	brew update
+	brew upgrade
+	brew cask upgrade
+endif
 
 core:
+	@echo "Installing xcode"
 	@if ! xcode-select -p 1>/dev/null; then xcode-select --install; fi
 
 brew: | $(BREW)
-	brew update
+	@brew update
 
 $(BREW):
+	@echo "Installing homebrew"
 	@ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 taps: | brew
-	brew tap homebrew/cask
+	@brew tap homebrew/cask
 
-packages: | brew
+packages-mac: | brew
 	brew reinstall \
 		ack \
 		cmake \
@@ -34,6 +49,18 @@ packages: | brew
 		reattach-to-user-namespace \
 		tmux \
 		tree
+
+packages-ubuntu:
+	sudo apt install -y \
+		build-essential \
+		cmake \
+		git \
+		gnome-tweak-tool \
+		make \
+		python3-dev \
+		tmux \
+		vim \
+		xclip
 
 cask: | brew taps
 	brew cask reinstall \
@@ -48,19 +75,26 @@ bash: | link
 	@echo "if [ -f ~/.bashrc ]; then . ~/.bashrc; fi" > $(HOME)/.bash_profile
 
 vim: | link
+	@echo "Setting up vim"
 	@rm -rf $(HOME)/.vim
 	@mkdir -p $(HOME)/.vim/tmp $(HOME)/.vim/bundle $(HOME)/.vim/.vimundo
 	@git clone https://github.com/VundleVim/Vundle.vim.git $(HOME)/.vim/bundle/Vundle.vim
 	@vim +PluginInstall +qall
-	@$(HOME)/.vim/bundle/YouCompleteMe/install.py
+ifeq ($(UNAME), Linux)
+	@python3 $(HOME)/.vim/bundle/youcompleteme/install.py --clang-completer
+else
+	@$(HOME)/.vim/bundle/youcompleteme/install.py --clang-completer
+endif
 
 tmux: | link
+	@echo "Installing tmux plugins"
 	@if [ ! -d $(HOME)/.tmux/plugins/tpm ]; \
 		then \
 			git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm; \
 			$(HOME)/.tmux/plugins/tpm/bin/install_plugins; \
 		fi
 link:
+	@echo "Linking dot files"
 	@ln -fs $(PWD)/vim/vimrc $(HOME)/.vimrc
 	@ln -fs $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -fs $(PWD)/bash/bashrc $(HOME)/.bashrc

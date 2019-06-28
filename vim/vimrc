@@ -208,11 +208,18 @@ let g:gutentags_add_default_project_roots = 0
 " Gui
 " -------------------------------------------------------------------------------------------------
 
-set guifont=Inconsolata\ Regular:h15    " font
-set guioptions-=m                       " remove menu bar
-set guioptions-=T                       " remove toolbar
-set guioptions-=r                       " remove right-hand scroll bar
-set guioptions-=L                       " remove left-hand scroll bar
+if has("gui_running")
+    set guioptions-=m                           " remove menu bar
+    set guioptions-=T                           " remove toolbar
+    set guioptions-=r                           " remove right-hand scroll bar
+    set guioptions-=L                           " remove left-hand scroll bar
+
+    if has ("gui_gtk3")
+        set guifont=Inconsolata\ 13
+    elseif has("gui_macvim")
+        set guifont=Inconsolata\ Regular:h15
+    endif
+endif
 
 " -------------------------------------------------------------------------------------------------
 " Source files
