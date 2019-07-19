@@ -1,4 +1,5 @@
-#### COLOUR
+# colors
+set -g default-terminal "screen-256color"
 
 tm_color_active=colour41
 tm_color_inactive=colour241

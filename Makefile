@@ -52,10 +52,14 @@ packages-mac: | brew
 
 packages-ubuntu:
 	sudo apt install -y \
+		ack \
 		build-essential \
 		cmake \
+		ctags \
+		dunst \
 		git \
 		gnome-tweak-tool \
+		i3 \
 		make \
 		python3-dev \
 		tmux \

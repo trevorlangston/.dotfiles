@@ -53,7 +53,7 @@ let mapleader=","
 filetype plugin indent on
 
 " Allow access to system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " vim does not need to be compaible with vi
 set nocompatible
@@ -172,7 +172,7 @@ nmap <C-f> <Plug>CtrlSFPrompt
 let g:ctrlsf_default_root = 'cwd'
 let g:ctrlsf_winsize = '70%'
 let g:ctrlsf_ignore_dir = ['node_modules', 'vendor', 'dist', 'build', 'tags']
-let g:ctrlsf_ackprg = "/usr/local/bin/ack"
+let g:ctrlsf_ackprg = "/usr/bin/ack"
 let g:ctrlsf_auto_focus = { "at": "start" }
 
 " w0rp/ale
