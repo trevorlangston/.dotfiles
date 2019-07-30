@@ -29,3 +29,5 @@ alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
+
+xset r rate 200 35 > /dev/null 2>&1

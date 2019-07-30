@@ -57,11 +57,13 @@ packages-ubuntu:
 		cmake \
 		ctags \
 		dunst \
+		feh \
 		git \
 		gnome-tweak-tool \
 		i3 \
 		make \
 		python3-dev \
+		screenfetch \
 		tmux \
 		vim \
 		xclip
