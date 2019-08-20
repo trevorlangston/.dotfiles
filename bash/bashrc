@@ -30,4 +30,5 @@ usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
 
-xset r rate 200 35 > /dev/null 2>&1
+# key pause and repeat
+xset r rate 300 35 > /dev/null 2>&1
