@@ -1,6 +1,6 @@
 #!/bin/bash
 INTERNAL_OUTPUT="eDP-1"
-EXTERNAL_OUTPUT="DP-2-1"
+EXTERNAL_OUTPUT=`xrandr | grep " connected " | awk '{ print$1 }' | sed -n 2p`
 
 # if we don't have a file, start at zero
 if [ ! -f "/tmp/monitor_mode.dat" ] ; then

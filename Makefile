@@ -101,6 +101,7 @@ tmux: | link
 		fi
 link:
 	@echo "Linking dot files"
+	@ln -fs $(PWD)/ack/ackrc $(HOME)/.ackrc
 	@ln -fs $(PWD)/vim/vimrc $(HOME)/.vimrc
 	@ln -fs $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -fs $(PWD)/bash/bashrc $(HOME)/.bashrc
