@@ -105,5 +105,6 @@ link:
 	@ln -fs $(PWD)/vim/vimrc $(HOME)/.vimrc
 	@ln -fs $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -fs $(PWD)/bash/bashrc $(HOME)/.bashrc
+	@ln -fs $(PWD)/gnu/inputrc $(HOME)/.inputrc
 	@ln -fs $(PWD)/alacritty/alacritty.yml $(HOME)/.alacritty.yml
 	@ln -fs $(PWD)/git/gitignore $(HOME)/.gitignore
