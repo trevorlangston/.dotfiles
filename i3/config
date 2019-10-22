@@ -169,3 +169,6 @@ bindsym $mod+Control+l exec --no-startup-id i3lock -i ~/Wallpapers/mist.jpg -e
 
 # toggle laptop and external monitor
 bindsym $mod+Shift+s exec --no-startup-id ~/.dotfiles/i3/monitor.sh
+
+# screenshot
+bindsym Control+Print exec gnome-screenshot -i

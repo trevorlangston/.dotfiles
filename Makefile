@@ -108,3 +108,5 @@ link:
 	@ln -fs $(PWD)/gnu/inputrc $(HOME)/.inputrc
 	@ln -fs $(PWD)/alacritty/alacritty.yml $(HOME)/.alacritty.yml
 	@ln -fs $(PWD)/git/gitignore $(HOME)/.gitignore
+	@ln -fs $(PWD)/xmodmap/Xmodmap $(HOME)/.Xmodmap
+	@ln -fs $(PWD)/xinitrc/xinitrc $(HOME)/.xinitrc
