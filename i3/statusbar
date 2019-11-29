@@ -1,0 +1,49 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "volume master"
+order += "cpu_usage"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "tztime local"
+
+volume master {
+        format = "VOL %volume"
+        format_muted = "VOL muted"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+cpu_usage {
+        format= "CPU %usage"
+        max_threshold= 75
+}
+
+wireless _first_ {
+        format_up = "W (%essid, %bitrate) %ip"
+        format_down = ""
+}
+
+ethernet _first_ {
+        format_up = "E %ip (%speed)"
+        format_down = ""
+}
+
+battery all {
+        format = "%status %percentage"
+        format_down = ""
+        status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M"
+}

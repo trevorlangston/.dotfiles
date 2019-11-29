@@ -110,3 +110,5 @@ link:
 	@ln -fs $(PWD)/git/gitignore $(HOME)/.gitignore
 	@ln -fs $(PWD)/xmodmap/Xmodmap $(HOME)/.Xmodmap
 	@ln -fs $(PWD)/xinitrc/xinitrc $(HOME)/.xinitrc
+	@ln -fs $(PWD)/i3/config $(HOME)/.config/i3/config
+	@ln -fs $(PWD)/i3/statusbar $(HOME)/.config/i3status/config

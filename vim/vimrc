@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Editing
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
 Plugin 'dense-analysis/ale'
 
@@ -36,7 +35,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
 
 " Colors
-Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joshdick/onedark.vim'
 
@@ -109,9 +108,9 @@ set backupdir=~/.vim/tmp
 
 " Source .vimrc after saving it
 " Airline disapears on save without a refresh
-if has("autocmd")
-    autocmd! BufWritePost *vimrc source $MYVIMRC | AirlineRefresh
-endif
+" if has("autocmd")
+"     autocmd! BufWritePost *vimrc source $MYVIMRC | AirlineRefresh
+" endif
 
 " Search
 set gdefault                    " substitute all matches on a line by default, 'g' flag toggles
@@ -130,10 +129,10 @@ set tags=./tags;/
 
 colorscheme onedark
 
-let g:airline_section_y = ''
-let g:airline_section_z = airline#section#create(['linenr', ' :%3v'])
-let g:airline_theme='onedark'
-
+" let g:airline_section_y = ''
+" let g:airline_section_z = airline#section#create(['linenr', ' :%3v'])
+" let g:airline_theme='onedark'
+"
 set laststatus=2
 
 " -------------------------------------------------------------------------------------------------

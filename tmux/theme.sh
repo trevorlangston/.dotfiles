@@ -1,11 +1,8 @@
 # colors
 set -g default-terminal "screen-256color"
 
-tm_color_active=colour41
-tm_color_inactive=colour241
-tm_color_feature=colour13
-tm_color_music=colour164
-tm_active_border_color=colour198
+tm_color_light=colour252
+tm_color_dark=colour8
 
 # separators
 tm_separator_left_bold="◀"
@@ -19,35 +16,38 @@ set -g status-interval 5
 
 # default statusbar colors
 # set-option -g status-bg colour0
-set-option -g status-fg $tm_color_active
-set-option -g status-bg default
-set-option -g status-style default
+set-option -g status-fg $tm_color_dark
+set-option -g status-bg $tm_color_light
+# set-option -g status-style default
 
 # default window title colors
-set -g window-status-style fg=$tm_color_inactive,bg=default
-set -g window-status-format "#I #W"
+set -g window-status-style fg=$tm_color_dark,bg=default
+set -g window-status-format "#[bold] #I:#W "
 
 # active window title colors
-set -g window-status-current-style fg=$tm_color_active,bg=default
-set-window-option -g  window-status-current-format "#[bold]#I #W"
+set -g window-status-current-style fg=colour10,bg=$tm_color_dark
+set-window-option -g  window-status-current-format " #[bold]#I:#W "
 
 # pane border
-set -g pane-border-style fg=$tm_color_inactive
-set -g pane-active-border-style fg=$tm_active_border_color
+set -g pane-border-style fg=$tm_color_dark
+set -g pane-active-border-style fg=$tm_color_light
 
 # message text
-set -g message-style fg=$tm_color_active,bg=default
+set -g message-style fg=$tm_color_light,bg=default
 
 # pane number display
-set-option -g display-panes-active-colour $tm_color_active
-set-option -g display-panes-colour $tm_color_inactive
+set-option -g display-panes-active-colour $tm_color_light
+set-option -g display-panes-colour $tm_color_dark
 
 # clock
-set-window-option -g clock-mode-colour $tm_color_active
+set-window-option -g clock-mode-colour $tm_color_light
 
-tm_date="#[fg=$tm_color_inactive] %R %d %b"
-tm_host="#[fg=$tm_color_feature,bold]#h"
-tm_session_name="#[fg=$tm_color_feature,bold]#S"
+tm_date="#[bold] %d %b %R "
+tm_session_name="#[fg=$tm_color_light,bg=$tm_color_dark,bold] [#S] "
 
-set -g status-left $tm_session_name' '
-set -g status-right $tm_date' '$tm_host
+set -g status-left $tm_session_name
+set -g status-right $tm_date
+
+
+set -g status-justify left
+set -g status-interval 1

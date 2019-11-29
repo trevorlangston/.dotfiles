@@ -6,7 +6,9 @@ npm-debug.log
 
 # IntelliJ
 .idea
+.iml
 
 # c-tags
 tags
 !tags/
+.puttagshere
