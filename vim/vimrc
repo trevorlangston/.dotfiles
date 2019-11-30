@@ -26,8 +26,6 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Navigation
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'ludovicchabant/vim-gutentags'
 
 " Search
@@ -35,7 +33,6 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
 
 " Colors
-" Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joshdick/onedark.vim'
 
@@ -57,6 +54,10 @@ set clipboard=unnamedplus
 " vim does not need to be compaible with vi
 set nocompatible
 
+" Search
+set path+=**                    " search into subfolders
+set wildmenu                    " display all matching files with tab complete
+
 " Syntax
 syntax enable                   " enable highlighting
 set regexpengine=1              " faster
@@ -70,7 +71,6 @@ set ttyfast                     " smoother redrawing
 set noswapfile                  " don't use swap files
 
 " Persist undo history without hidden buffers
-"
 set undofile                    " use an undo file
 set undodir=~/.vim/.vimundo/    " remember to make this dir
 set undolevels=1000             " how many undos
@@ -106,12 +106,6 @@ set textwidth=0                 " do not wrap words (insert)
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 
-" Source .vimrc after saving it
-" Airline disapears on save without a refresh
-" if has("autocmd")
-"     autocmd! BufWritePost *vimrc source $MYVIMRC | AirlineRefresh
-" endif
-
 " Search
 set gdefault                    " substitute all matches on a line by default, 'g' flag toggles
 set ignorecase                  " ignore casing in search
@@ -122,17 +116,12 @@ set hlsearch                    " highlight all matches of previous search patte
 " root until one is found
 set tags=./tags;/
 
-
 " -------------------------------------------------------------------------------------------------
 " Colors
 " -------------------------------------------------------------------------------------------------
 
 colorscheme onedark
 
-" let g:airline_section_y = ''
-" let g:airline_section_z = airline#section#create(['linenr', ' :%3v'])
-" let g:airline_theme='onedark'
-"
 set laststatus=2
 
 " -------------------------------------------------------------------------------------------------
@@ -146,6 +135,9 @@ nmap <CR> o<Esc>                            " insert newlines without entering i
 " -------------------------------------------------------------------------------------------------
 " Plugins
 " -------------------------------------------------------------------------------------------------
+
+" netrw
+let g:netrw_banner = 0
 
 " valloric/youcompleteme
 set completeopt-=preview
@@ -161,10 +153,6 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
-
-" scrooloose/nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " dyng/ctrlsf
 nmap <C-f> <Plug>CtrlSFPrompt
@@ -188,13 +176,6 @@ let g:NERDAltDelims_java = 1
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
-
-" kien/ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_files=0
-let g:ctrlp_show_hidden=1
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " benmills/vimux
 " Prompt for a command to run
