@@ -29,6 +29,8 @@ alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
+alias wifi=nmtui
+alias sleep="sudo sh -c 'echo mem > /sys/power/state'"
 
 # key pause and repeat
 xset r rate 300 35 > /dev/null 2>&1
