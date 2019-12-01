@@ -30,7 +30,7 @@ sudo apt install -y \
 echo "#------------------------#"
 echo "Setting up Fonts"
 echo "#------------------------#"
-cp -r $PWD/fonts/* $HOME/.local/share/fonts
+cp -r -u $PWD/fonts/* $HOME/.local/share/fonts
 
 echo "#------------------------#"
 echo "Linking Dotfiles"
@@ -41,9 +41,7 @@ ln -fs $PWD/vim/vimrc $HOME/.vimrc
 ln -fs $PWD/tmux/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/bash/bashrc $HOME/.bashrc
 ln -fs $PWD/gnu/inputrc $HOME/.inputrc
-ln -fs $PWD/alacritty/alacritty.yml $HOME/.alacritty.yml
 ln -fs $PWD/git/gitignore $HOME/.gitignore
-ln -fs $PWD/git/gitconfig $HOME/.gitconfig
 ln -fs $PWD/xmodmap/Xmodmap $HOME/.Xmodmap
 ln -fs $PWD/xinitrc/xinitrc $HOME/.xinitrc
 ln -fs $PWD/i3/config $HOME/.config/i3/config
@@ -77,3 +75,13 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 tmux # TODO must detach from session before continuing
 $HOME/.tmux/plugins/tpm/bin/install_plugins;
 tmux kill-session -t 0
+#
+echo "#------------------------#"
+echo "Finishing Up"
+echo "#------------------------#"
+
+printf "\nYou may want to:\n"
+echo "* run 'ln -fs $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig'"
+echo "* setup github ssh key"
+
+source $HOME/.bashrc
