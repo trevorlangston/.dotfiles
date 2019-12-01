@@ -3,6 +3,7 @@ set -g default-terminal "screen-256color"
 
 tm_color_light=colour252
 tm_color_dark=colour8
+tm_color_highlight=colour10
 
 # separators
 tm_separator_left_bold="◀"
@@ -15,17 +16,15 @@ set -g status-right-length 150
 set -g status-interval 5
 
 # default statusbar colors
-# set-option -g status-bg colour0
 set-option -g status-fg $tm_color_dark
 set-option -g status-bg $tm_color_light
-# set-option -g status-style default
 
 # default window title colors
 set -g window-status-style fg=$tm_color_dark,bg=default
 set -g window-status-format "#[bold] #I:#W "
 
 # active window title colors
-set -g window-status-current-style fg=colour10,bg=$tm_color_dark
+set -g window-status-current-style fg=$tm_color_highlight,bg=$tm_color_dark
 set-window-option -g  window-status-current-format " #[bold]#I:#W "
 
 # pane border
@@ -47,7 +46,6 @@ tm_session_name="#[fg=$tm_color_light,bg=$tm_color_dark,bold] [#S] "
 
 set -g status-left $tm_session_name
 set -g status-right $tm_date
-
 
 set -g status-justify left
 set -g status-interval 1

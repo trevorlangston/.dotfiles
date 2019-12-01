@@ -25,9 +25,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Navigation
-Plugin 'ludovicchabant/vim-gutentags'
-
 " Search
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'petdance/ack2'
@@ -180,10 +177,6 @@ let g:NERDTrimTrailingWhitespace = 1
 " benmills/vimux
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
-
-" ludovicchabant/vim-gutentags
-let g:gutentags_project_root = ['.puttagshere']
-let g:gutentags_add_default_project_roots = 0
 
 " -------------------------------------------------------------------------------------------------
 " Gui
