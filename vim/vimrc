@@ -5,6 +5,7 @@
 " -------------------------------------------------------------------------------------------------
 " PluginInstall to install
 " PluginUpdate to update
+" PluginClean to remove
 
 filetype off
 
@@ -22,7 +23,6 @@ Plugin 'dense-analysis/ale'
 Plugin 'tpope/vim-fugitive'
 
 " TMUX
-Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Search
@@ -57,14 +57,13 @@ set wildmenu                    " display all matching files with tab complete
 
 " Syntax
 syntax enable                   " enable highlighting
-set regexpengine=1              " faster
+set regexpengine=1              " faster syntax highlighting
 
 " Rendering
 set lazyredraw                  " only redraw during typing
 set ttyfast                     " smoother redrawing
 
 " Buffers
-" set hidden                    " hide buffers instead of closing
 set noswapfile                  " don't use swap files
 
 " Persist undo history without hidden buffers
@@ -79,6 +78,7 @@ set relativenumber              " show relative line numbers
 set ruler                       " show ruler in status line
 set showcmd                     " show current command
 set showmatch                   " show matching brackets
+set laststatus=2                " always show status bar
 
 " Error sounds
 set visualbell
@@ -88,9 +88,9 @@ set noerrorbells                " don't beep
 set autoindent                  " auto indent
 set backspace=2                 " backspace works like most other programs
 set expandtab                   " insert spaces with tab
-set shiftwidth=4                " number of spaces for autoident
-set spelllang=en                " spell checker
+set shiftwidth=4                " number of spaces for autoindent
 set tabstop=4                   " one tab is 4 spaces
+set spelllang=en                " spell checker
 
 " Text Display
 match ErrorMsg '\s\+$'          " highlight trailing white space
@@ -106,7 +106,7 @@ set backupdir=~/.vim/tmp
 " Search
 set gdefault                    " substitute all matches on a line by default, 'g' flag toggles
 set ignorecase                  " ignore casing in search
-set smartcase                   " unless search contains a capital
+set smartcase                   " ignore casing unless search contains a capital
 set hlsearch                    " highlight all matches of previous search pattern
 
 " Ctags - look in the current directory for tags, and work up the tree towards
@@ -119,15 +119,18 @@ set tags=./tags;/
 
 colorscheme onedark
 
-set laststatus=2
-
 " -------------------------------------------------------------------------------------------------
 " Bindings
 " -------------------------------------------------------------------------------------------------
 
 nnoremap <backspace> :noh<CR>:<backspace>   " clear search highlighting
 nnoremap * *``                              " don't jump on hlsearch
-nmap <CR> o<Esc>                            " insert newlines without entering insert mode
+
+" -------------------------------------------------------------------------------------------------
+" Autocmd
+" -------------------------------------------------------------------------------------------------
+
+autocmd BufWritePre * %s/\s\+$//e           " strip trailing whitespace on save, dangerous if whitespace desired
 
 " -------------------------------------------------------------------------------------------------
 " Plugins
@@ -135,6 +138,7 @@ nmap <CR> o<Esc>                            " insert newlines without entering i
 
 " netrw
 let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 
 " valloric/youcompleteme
 set completeopt-=preview
@@ -174,10 +178,6 @@ let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-" benmills/vimux
-" Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
-
 " -------------------------------------------------------------------------------------------------
 " Gui
 " -------------------------------------------------------------------------------------------------
@@ -196,7 +196,7 @@ if has("gui_running")
 endif
 
 " -------------------------------------------------------------------------------------------------
-" Source files
+" Source other rc files
 " -------------------------------------------------------------------------------------------------
 
 " Source file if it exists
