@@ -22,10 +22,16 @@ sudo apt install -y \
     i3-gaps-session \
     make \
     python3-dev \
+    python3-pip \
     screenfetch \
     tmux \
     vim \
     xclip
+
+echo "#------------------------#"
+echo "Installing python modules"
+echo "#------------------------#"
+python3 -m pip install flake8
 
 echo "#------------------------#"
 echo "Setting up Fonts"
