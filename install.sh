@@ -29,7 +29,7 @@ sudo apt install -y \
     xclip
 
 echo "#------------------------#"
-echo "Installing python modules"
+echo "Installing Python Modules"
 echo "#------------------------#"
 python3 -m pip install flake8
 
