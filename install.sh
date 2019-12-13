@@ -53,6 +53,7 @@ ln -fs $PWD/xinitrc/xinitrc $HOME/.xinitrc
 ln -fs $PWD/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
 ln -fs $PWD/i3/statusbar $HOME/.config/i3status/config
+ln -fs $PWD/gtk/gtk.css $HOME/.config/gtk-3.0/gtk.css
 
 echo "#------------------------#"
 echo "Configuring gnome-terminal"

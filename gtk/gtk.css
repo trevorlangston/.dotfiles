@@ -1,0 +1,4 @@
+/* match the joshdick/onedark.vim background color */
+window#vim-main-window {
+    background-color: #282c34;
+}
