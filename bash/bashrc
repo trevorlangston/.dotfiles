@@ -16,18 +16,18 @@ alias clone='~/src/github.com/trevorlangston/clone/clone.sh'
 alias ggraph='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog='git log --pretty="%h - %s"'
 
-# prompt
-# export PS1="\n\[\e[36m\]\w\[\e[m\] > "
-
 # tmux
 alias tm='~/.dotfiles/bin/tm.sh'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # useful stuff
 alias ll='ls -lahG'
-alias updatedb='sudo /usr/libexec/locate.updatedb' # for locate command
+alias updatedb='sudo /usr/libexec/locate.updatedb'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
+
+# alias what I can't remember
+alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 alias wifi=nmtui
 alias sleep="sudo sh -c 'echo mem > /sys/power/state'"
