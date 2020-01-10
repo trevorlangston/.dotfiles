@@ -42,6 +42,7 @@ echo "#------------------------#"
 echo "Linking Dotfiles"
 echo "#------------------------#"
 
+ln -fs $PWD/dig/digrc $HOME/.digrc
 ln -fs $PWD/ack/ackrc $HOME/.ackrc
 ln -fs $PWD/vim/vimrc $HOME/.vimrc
 ln -fs $PWD/tmux/tmux.conf $HOME/.tmux.conf
@@ -54,6 +55,7 @@ ln -fs $PWD/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
 ln -fs $PWD/i3/statusbar $HOME/.config/i3status/config
 ln -fs $PWD/gtk/gtk.css $HOME/.config/gtk-3.0/gtk.css
+ln -fs $PWD/lint/flake8 $HOME/.config/flake8
 
 echo "#------------------------#"
 echo "Configuring gnome-terminal"
