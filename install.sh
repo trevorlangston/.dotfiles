@@ -61,7 +61,7 @@ echo "#------------------------#"
 echo "Configuring gnome-terminal"
 echo "#------------------------#"
 dconf reset -f /org/gnome/terminal/
-dconf load /org/gnome/terminal/ < $PWD/gnome-terminal/profile
+dconf load /org/gnome/terminal/ < $PWD/gnome-terminal/profile.dconf
 
 echo "#------------------------#"
 echo "Installing Vim Plugins"

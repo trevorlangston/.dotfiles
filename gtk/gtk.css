@@ -1,4 +1,7 @@
-/* match the joshdick/onedark.vim background color */
-window#vim-main-window {
-    background-color: #282c34;
+VteTerminal,
+vte-terminal,
+TerminalScreen {
+    padding: 10px 10px 0px 10px;
+    margin: 10px 10px 0px 10px;
+    -VteTerminal-inner-border: 10px 10px 0px 10px;
 }
