@@ -1,4 +1,4 @@
-" Reload vimrc with :so $MYVIMRC
+" Reload vimrc with :source $MYVIMRC
 
 " -------------------------------------------------------------------------------------------------
 " Vundle
@@ -32,6 +32,7 @@ Plugin 'petdance/ack2'
 " Colors
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joshdick/onedark.vim'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
@@ -117,7 +118,8 @@ set tags=./tags;/
 " Colors
 " -------------------------------------------------------------------------------------------------
 
-colorscheme onedark
+set background=dark
+colorscheme solarized
 
 " -------------------------------------------------------------------------------------------------
 " Bindings

@@ -5,3 +5,7 @@ TerminalScreen {
     margin: 10px 10px 0px 10px;
     -VteTerminal-inner-border: 10px 10px 0px 10px;
 }
+
+window#vim-main-window {
+    background-color: #002b36;
+}

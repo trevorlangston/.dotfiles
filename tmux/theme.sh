@@ -28,7 +28,7 @@ set -g window-status-current-style fg=$tm_color_highlight,bg=$tm_color_dark
 set-window-option -g  window-status-current-format " #[bold]#I:#W "
 
 # pane border
-set -g pane-border-style fg=$tm_color_dark
+set -g pane-border-style fg=$tm_color_highlight
 set -g pane-active-border-style fg=$tm_color_light
 
 # message text

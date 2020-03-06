@@ -31,3 +31,5 @@ usingport() {
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 alias wifi=nmtui
 alias sleep="sudo sh -c 'echo mem > /sys/power/state'"
+
+eval `dircolors $HOME/.dir_colors/dircolors`
