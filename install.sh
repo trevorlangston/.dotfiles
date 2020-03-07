@@ -77,6 +77,8 @@ git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git $HOME/s
 echo "#------------------------#"
 echo "Configuring gnome-terminal"
 echo "#------------------------#"
+dconf reset -f /org/gnome/terminal/
+dconf load /org/gnome/terminal/ < $HOME/.dotfiles/gnome-terminal/backup.txt
 $HOME/src/github.com/aruhier/gnome-terminal-colors-solarized/install.sh -s dark --install-dircolors
 
 echo "#------------------------#"

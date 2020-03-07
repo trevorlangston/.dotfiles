@@ -1,7 +1,7 @@
 # colors
 set -g default-terminal "screen-256color"
 
-tm_color_light=colour252
+tm_color_light=colour250 # TODO this is a little off from solarized
 tm_color_dark=colour8
 tm_color_highlight=colour10
 
