@@ -1,7 +1,6 @@
 echo "#------------------------#"
 echo "Installing Packages"
 echo "#------------------------#"
-
 sudo add-apt-repository ppa:kgilmer/speed-ricer -y
 
 sudo apt update
@@ -27,6 +26,7 @@ sudo apt install -y \
     i3-gaps-session \
     i3-gaps-wm \
     make \
+    nasm \
     python3-dev \
     python3-pip \
     screenfetch \
@@ -38,7 +38,9 @@ sudo apt install -y \
 echo "#------------------------#"
 echo "Installing Python Modules"
 echo "#------------------------#"
+
 python3 -m pip install flake8
+python3 -m pip install numpy
 
 echo "#------------------------#"
 echo "Setting up Fonts"
@@ -67,6 +69,7 @@ ln -fs $PWD/lint/flake8 $HOME/.config/flake8
 echo "#------------------------#"
 echo "Repos"
 echo "#------------------------#"
+
 mkdir -p $HOME/src/github.com/trevorlangston
 git clone https://github.com/trevorlangston/clone.git $HOME/src/github.com/trevorlangston/clone
 chmod +x $HOME/src/github.com/trevorlangston/clone/clone.sh
