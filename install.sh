@@ -1,7 +1,11 @@
+DOTFILES=$HOME/.dotfiles
+
 echo "#------------------------#"
 echo "Installing Packages"
 echo "#------------------------#"
+
 sudo add-apt-repository ppa:kgilmer/speed-ricer -y
+sudo add-apt-repository ppa:kelleyk/emacs - y
 
 sudo apt update
 sudo apt upgrade -y
@@ -17,6 +21,7 @@ sudo apt install -y \
     curl \
     dconf-cli \
     dunst \
+    emacs26 \
     feh \
     git \
     gnome-tweak-tool \
@@ -27,6 +32,7 @@ sudo apt install -y \
     i3-gaps-wm \
     make \
     nasm \
+    nitrogen \
     python3-dev \
     python3-pip \
     screenfetch \
@@ -41,30 +47,33 @@ echo "#------------------------#"
 
 python3 -m pip install flake8
 python3 -m pip install numpy
+python3 -m pip install boto3
 
 echo "#------------------------#"
 echo "Setting up Fonts"
 echo "#------------------------#"
+
 cp -r -u $PWD/fonts/* $HOME/.local/share/fonts
 
 echo "#------------------------#"
 echo "Linking Dotfiles"
 echo "#------------------------#"
 
-ln -fs $PWD/dig/digrc $HOME/.digrc
-ln -fs $PWD/ack/ackrc $HOME/.ackrc
-ln -fs $PWD/vim/vimrc $HOME/.vimrc
-ln -fs $PWD/tmux/tmux.conf $HOME/.tmux.conf
-ln -fs $PWD/bash/bashrc $HOME/.bashrc
-ln -fs $PWD/gnu/inputrc $HOME/.inputrc
-ln -fs $PWD/git/gitignore $HOME/.gitignore
-ln -fs $PWD/xmodmap/Xmodmap $HOME/.Xmodmap
-ln -fs $PWD/xinitrc/xinitrc $HOME/.xinitrc
-ln -fs $PWD/i3/config $HOME/.config/i3/config
 mkdir -p $HOME/.config/i3status
-ln -fs $PWD/i3/statusbar $HOME/.config/i3status/config
-ln -fs $PWD/gtk/gtk.css $HOME/.config/gtk-3.0/gtk.css
-ln -fs $PWD/lint/flake8 $HOME/.config/flake8
+ln -fs $DOTFILES/dig/digrc $HOME/.digrc
+ln -fs $DOTFILES/ack/ackrc $HOME/.ackrc
+ln -fs $DOTFILES/vim/vimrc $HOME/.vimrc
+ln -fs $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+ln -fs $DOTFILES/bash/bashrc $HOME/.bashrc
+ln -fs $DOTFILES/gnu/inputrc $HOME/.inputrc
+ln -fs $DOTFILES/git/gitignore $HOME/.gitignore
+ln -fs $DOTFILES/xmodmap/Xmodmap $HOME/.Xmodmap
+ln -fs $DOTFILES/xinitrc/xinitrc $HOME/.xinitrc
+ln -fs $DOTFILES/i3/config $HOME/.config/i3/config
+ln -fs $DOTFILES/i3/statusbar $HOME/.config/i3status/config
+ln -fs $DOTFILES/gtk/gtk.css $HOME/.config/gtk-3.0/gtk.css
+ln -fs $DOTFILES/lint/flake8 $HOME/.config/flake8
+ln -fs $DOTFILES/Wallpapers/ $HOME/Wallpapers
 
 echo "#------------------------#"
 echo "Repos"
@@ -80,8 +89,9 @@ git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git $HOME/s
 echo "#------------------------#"
 echo "Configuring gnome-terminal"
 echo "#------------------------#"
+
 dconf reset -f /org/gnome/terminal/
-dconf load /org/gnome/terminal/ < $HOME/.dotfiles/gnome-terminal/backup.txt
+dconf load /org/gnome/terminal/ < $DOTFILES/gnome-terminal/backup.txt
 $HOME/src/github.com/aruhier/gnome-terminal-colors-solarized/install.sh -s dark --install-dircolors
 
 echo "#------------------------#"
@@ -110,8 +120,9 @@ echo "#------------------------#"
 echo "Finishing Up"
 echo "#------------------------#"
 
+source $HOME/.bashrc
+
 printf "\nYou may want to:\n"
 echo "* run 'ln -fs $HOME/.dotfiles/git/gitconfig $HOME/.gitconfig'"
 echo "* setup github ssh key"
-
-source $HOME/.bashrc
+echo "* run 'nitrogen $HOME/Wallpapers'"
