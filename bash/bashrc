@@ -2,9 +2,8 @@ if [ -f ~/.bashrc.default ]; then . ~/.bashrc.default; fi
 if [ -f ~/.bashrc.work ]; then . ~/.bashrc.work; fi
 
 # common variables
-export DOTFILES='$HOME/.dotfiles'
-export MYBASHRC='$DOTFILES/bash/bashrc'
-export MYVIMRC='$DOTFILES/vim/vimrc'
+export MYBASHRC='$HOME/.dotfiles/bash/bashrc'
+export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 
 # vim
 set -o vi
@@ -18,7 +17,7 @@ alias ggraph='git log --graph --abbrev-commit --decorate --date=relative --all'
 alias glog='git log --pretty="%h - %s"'
 
 # tmux
-alias tm='$DOTFILES/bin/tm.sh'
+alias tm='$HOME/.dotfiles/bin/tm.sh'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # emacs
