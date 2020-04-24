@@ -17,6 +17,7 @@ sudo apt install -y \
     build-essential \
     ca-certificates \
     cmake \
+    compton \
     ctags \
     curl \
     dconf-cli \
@@ -48,6 +49,7 @@ echo "#------------------------#"
 python3 -m pip install flake8
 python3 -m pip install numpy
 python3 -m pip install boto3
+python3 -m pip install matplotlib
 
 echo "#------------------------#"
 echo "Setting up Fonts"
@@ -74,6 +76,7 @@ ln -fs $DOTFILES/i3/statusbar $HOME/.config/i3status/config
 ln -fs $DOTFILES/gtk/gtk.css $HOME/.config/gtk-3.0/gtk.css
 ln -fs $DOTFILES/lint/flake8 $HOME/.config/flake8
 ln -fs $DOTFILES/Wallpapers/ $HOME/Wallpapers
+ln -fs $DOTFILES/compton/compton.conf $HOME/.config/compton.conf
 
 echo "#------------------------#"
 echo "Repos"
