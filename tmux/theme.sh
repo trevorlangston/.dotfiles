@@ -1,15 +1,10 @@
 # colors
-set -g default-terminal "screen-256color"
+set  -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",alacritty:RGB"
 
-tm_color_light=colour250 # TODO this is a little off from solarized
-tm_color_dark=colour8
-tm_color_highlight=colour10
-
-# separators
-tm_separator_left_bold="◀"
-tm_separator_left_thin="❮"
-tm_separator_right_bold="▶"
-tm_separator_right_thin="❯"
+tm_color_light=colour7
+tm_color_dark=colour0
+tm_color_highlight=colour14
 
 set -g status-left-length 32
 set -g status-right-length 150

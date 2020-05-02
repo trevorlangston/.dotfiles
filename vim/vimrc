@@ -32,7 +32,7 @@ Plugin 'petdance/ack2'
 " Colors
 Plugin 'airblade/vim-gitgutter'
 Plugin 'joshdick/onedark.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/Solarized'
 
 call vundle#end()
 
@@ -118,6 +118,7 @@ set tags=./tags;/
 " Colors
 " -------------------------------------------------------------------------------------------------
 
+let g:solarized_termcolors=16
 set background=dark
 colorscheme solarized
 
@@ -192,9 +193,7 @@ if has("gui_running")
     set guioptions-=L                           " remove left-hand scroll bar
 
     if has ("gui_gtk3")
-        set guifont=Inconsolata\ 13
-    elseif has("gui_macvim")
-        set guifont=Inconsolata\ Regular:h15
+        set guifont=Inconsolata\ 12
     endif
 endif
 

@@ -9,7 +9,7 @@ export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 set -o vi
 export EDITOR='vim'
 export VISUAL='vim'
-export TERM="xterm-256color"
+export TERM="alacritty"
 
 # git
 alias clone='~/src/github.com/trevorlangston/clone/clone.sh'
@@ -18,7 +18,6 @@ alias glog='git log --pretty="%h - %s"'
 
 # tmux
 alias tm='$HOME/.dotfiles/bin/tm.sh'
-alias tmux="TERM=screen-256color-bce tmux"
 
 # emacs
 alias emacs='emacs26 &> /dev/null &'

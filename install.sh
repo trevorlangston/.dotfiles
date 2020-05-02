@@ -7,7 +7,8 @@ echo "Installing Packages"
 echo "#------------------------#"
 
 sudo add-apt-repository ppa:kgilmer/speed-ricer -y
-sudo add-apt-repository ppa:kelleyk/emacs - y
+sudo add-apt-repository ppa:kelleyk/emacs -y
+add-apt-repository ppa:mmstick76/alacritty -y
 
 sudo apt update
 sudo apt upgrade -y
@@ -15,6 +16,7 @@ sudo apt dist-upgrade -y
 
 sudo apt install -y \
     ack \
+    alacritty \
     apt-transport-https \
     build-essential \
     ca-certificates \
@@ -45,15 +47,16 @@ sudo apt install -y \
     vim \
     xclip
 
-echo "#------------------------#"
-echo "Docker"
-echo "#------------------------#"
-
-sudo systemctl enable docker
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-docker run hello-world
+# TODO
+# echo "#------------------------#"
+# echo "Docker"
+# echo "#------------------------#"
+#
+# sudo systemctl enable docker
+# sudo getent group docker || sudo groupadd docker
+# sudo usermod -aG docker $USER
+# newgrp docker
+# docker run hello-world
 
 echo "#------------------------#"
 echo "Installing Python Modules"
@@ -63,6 +66,7 @@ python3 -m pip install flake8
 python3 -m pip install numpy
 python3 -m pip install boto3
 python3 -m pip install matplotlib
+python3 -m pip install pandas
 
 echo "#------------------------#"
 echo "Setting up Fonts"
@@ -84,16 +88,8 @@ mkdir -p $HOME/src/github.com/trevorlangston
 git clone https://github.com/trevorlangston/clone.git $HOME/src/github.com/trevorlangston/clone
 chmod +x $HOME/src/github.com/trevorlangston/clone/clone.sh
 
-mkdir -p $HOME/src/github.com/aruhier
-git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git $HOME/src/github.com/aruhier/gnome-terminal-colors-solarized
-
-echo "#------------------------#"
-echo "Configuring gnome-terminal"
-echo "#------------------------#"
-
-dconf reset -f /org/gnome/terminal/
-dconf load /org/gnome/terminal/ < $DOTFILES/gnome-terminal/backup.txt
-$HOME/src/github.com/aruhier/gnome-terminal-colors-solarized/install.sh -s dark --install-dircolors
+# mkdir -p $HOME/src/github.com/aruhier
+# git clone https://github.com/aruhier/gnome-terminal-colors-solarized.git $HOME/src/github.com/aruhier/gnome-terminal-colors-solarized
 
 echo "#------------------------#"
 echo "Installing Vim Plugins"
