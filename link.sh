@@ -17,4 +17,3 @@ ln -fs $DOTFILES/i3/config $HOME/.config/i3/config
 ln -fs $DOTFILES/i3/statusbar $HOME/.config/i3status/config
 ln -fs $DOTFILES/lint/flake8 $HOME/.config/flake8
 ln -fs $DOTFILES/Wallpapers/ $HOME/Wallpapers
-ln -fs $DOTFILES/compton/compton.conf $HOME/.config/compton.conf

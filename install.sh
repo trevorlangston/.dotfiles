@@ -21,7 +21,6 @@ sudo apt install -y \
     build-essential \
     ca-certificates \
     cmake \
-    compton \
     ctags \
     curl \
     dconf-cli \
@@ -112,6 +111,14 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 tmux # TODO must detach from session before continuing
 $HOME/.tmux/plugins/tpm/bin/install_plugins;
 tmux kill-session -t 0
+
+echo "#------------------------#"
+echo "Alacritty"
+echo "#------------------------#"
+
+mkdir -p $HOME/src/github.com/alacritty
+git clone https://github.com/alacritty/alacritty.git $HOME/src/github.com/alacritty/alacritty
+sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 
 echo "#------------------------#"
 echo "Finishing Up"
