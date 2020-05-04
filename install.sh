@@ -24,7 +24,7 @@ sudo apt install -y \
     ctags \
     curl \
     dconf-cli \
-    docker.io \
+    # docker.io \
     dunst \
     emacs26 \
     feh \
@@ -118,7 +118,7 @@ echo "#------------------------#"
 
 mkdir -p $HOME/src/github.com/alacritty
 git clone https://github.com/alacritty/alacritty.git $HOME/src/github.com/alacritty/alacritty
-sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+sudo tic -xe alacritty,alacritty-direct $HOME/src/github.com/alacritty/alacritty/extra/alacritty.info
 
 echo "#------------------------#"
 echo "Finishing Up"
