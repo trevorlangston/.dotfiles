@@ -9,7 +9,7 @@ export MYVIMRC='$HOME/.dotfiles/vim/vimrc'
 set -o vi
 export EDITOR='vim'
 export VISUAL='vim'
-export TERM="alacritty"
+export TERM="xterm-256color"
 
 # git
 alias clone='~/src/github.com/trevorlangston/clone/clone.sh'

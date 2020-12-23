@@ -127,7 +127,6 @@ colorscheme solarized
 " -------------------------------------------------------------------------------------------------
 
 nnoremap <backspace> :noh<CR>:<backspace>   " clear search highlighting
-nnoremap * *``                              " don't jump on hlsearch
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>   " set working directory to current file
 
 " -------------------------------------------------------------------------------------------------

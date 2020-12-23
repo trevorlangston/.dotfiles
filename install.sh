@@ -18,6 +18,8 @@ sudo apt install -y \
     ack \
     alacritty \
     apt-transport-https \
+    bc \
+    bison \
     build-essential \
     ca-certificates \
     cmake \
@@ -27,7 +29,10 @@ sudo apt install -y \
     # docker.io \
     dunst \
     emacs26 \
+    exuberant-ctags \
     feh \
+    flex \
+    gcc \
     git \
     gnome-tweak-tool \
     gnupg-agent \
@@ -35,6 +40,9 @@ sudo apt install -y \
     i3-gaps \
     i3-gaps-session \
     i3-gaps-wm \
+    libelf-dev \
+    libncurses5-dev \
+    libssl-dev \
     make \
     nasm \
     nitrogen \
