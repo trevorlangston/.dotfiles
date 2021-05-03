@@ -208,3 +208,8 @@ function! SourceIfExists(file)
 endfunction
 
 call SourceIfExists("~/.vimrc.work")
+
+" -------------------------------------------------------------------------------------------------
+" File templates
+" -------------------------------------------------------------------------------------------------
+autocmd BufNewFile *.sh 0r ~/.dotfiles/vim/skeletons/bash.sh

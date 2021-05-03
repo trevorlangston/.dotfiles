@@ -17,6 +17,7 @@ sudo apt dist-upgrade -y
 sudo apt install -y \
     ack \
     alacritty \
+    apt-file \
     apt-transport-https \
     bc \
     bison \
