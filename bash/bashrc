@@ -23,7 +23,8 @@ alias tm='$HOME/.dotfiles/bin/tm.sh'
 alias emacs='emacs26 &> /dev/null &'
 
 # useful stuff
-alias ll='ls -lahG'
+alias ll='ls -thor'
+alias ps='ps auxf'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN

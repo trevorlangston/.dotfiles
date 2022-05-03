@@ -11,6 +11,7 @@ order += "cpu_usage"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
+order += "tztime utc"
 order += "tztime local"
 
 volume master {
@@ -47,6 +48,11 @@ battery all {
         low_threshold = 10
 }
 
+tztime utc {
+        format = "%m/%d %H:%M"
+        timezone = "Etc/UTC"
+}
+
 tztime local {
-        format = "%Y-%m-%d %H:%M "
+        format = "%m/%d %H:%M "
 }
