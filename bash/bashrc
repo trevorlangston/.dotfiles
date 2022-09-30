@@ -32,7 +32,6 @@ usingport() {
 
 # alias what I can't remember
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-alias wifi=nmtui
 alias sleep="systemctl suspend"
 
 eval `dircolors $HOME/.dir_colors/dircolors`

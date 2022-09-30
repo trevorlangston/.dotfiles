@@ -13,12 +13,14 @@ fi
 
 if [ $monitor_mode = "all" ]; then
         monitor_mode="EXTERNAL"
+        # xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --mode 1920x1080
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
 elif [ $monitor_mode = "EXTERNAL" ]; then
         monitor_mode="INTERNAL"
         xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
 elif [ $monitor_mode = "INTERNAL" ]; then
         monitor_mode="EXTERNAL"
+        # xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --mode 1920x1080
         xrandr --output $INTERNAL_OUTPUT --off --output $EXTERNAL_OUTPUT --auto
 else
         monitor_mode="all"
