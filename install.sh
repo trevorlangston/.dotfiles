@@ -38,9 +38,6 @@ sudo apt install -y \
     gnome-tweak-tool \
     gnupg-agent \
     htop \
-    i3-gaps \
-    i3-gaps-session \
-    i3-gaps-wm \
     libelf-dev \
     libncurses5-dev \
     libssl-dev \
