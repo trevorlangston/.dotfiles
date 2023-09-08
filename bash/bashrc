@@ -19,19 +19,19 @@ alias glog='git log --pretty="%h - %s"'
 # tmux
 alias tm='$HOME/.dotfiles/bin/tm.sh'
 
-# emacs
-alias emacs='emacs26 &> /dev/null &'
-
 # useful stuff
 alias ll='ls -thor'
 alias ps='ps auxf'
-alias updatedb='sudo /usr/libexec/locate.updatedb'
 usingport() {
     lsof -n -i4TCP:"$1" | grep LISTEN
 }
 
 # alias what I can't remember
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-alias sleep="systemctl suspend"
 
-eval `dircolors $HOME/.dir_colors/dircolors`
+eval `dircolors $HOME/.dir_colors`
+
+# PATH
+PATH=$PATH:$HOME/.cargo/bin
+
+export PATH=$PATH:$HOME/.toolbox/bin

@@ -3,7 +3,6 @@
 DOTFILES=$HOME/.dotfiles
 
 mkdir -p $HOME/.config/i3status
-ln -fs $DOTFILES/alacritty/alacritty.yml $HOME/.alacritty.yml
 ln -fs $DOTFILES/dig/digrc $HOME/.digrc
 ln -fs $DOTFILES/ack/ackrc $HOME/.ackrc
 ln -fs $DOTFILES/vim/vimrc $HOME/.vimrc
@@ -17,3 +16,4 @@ ln -fs $DOTFILES/i3/config $HOME/.config/i3/config
 ln -fs $DOTFILES/i3/statusbar $HOME/.config/i3status/config
 ln -fs $DOTFILES/lint/flake8 $HOME/.config/flake8
 ln -fs $DOTFILES/Wallpapers/ $HOME/Wallpapers
+ln -fs $DOTFILES/dircolors/ $HOME/.dir_colors

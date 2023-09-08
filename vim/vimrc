@@ -226,7 +226,7 @@ if has("gui_running")
     set guioptions-=L                           " remove left-hand scroll bar
 
     if has ("gui_gtk3")
-        set guifont=Inconsolata\ 12
+        set guifont=Inconsolata\ 13
     endif
 endif
 

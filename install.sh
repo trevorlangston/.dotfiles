@@ -6,17 +6,12 @@ echo "#------------------------#"
 echo "Installing Packages"
 echo "#------------------------#"
 
-sudo add-apt-repository ppa:kgilmer/speed-ricer -y
-sudo add-apt-repository ppa:kelleyk/emacs -y
-add-apt-repository ppa:mmstick76/alacritty -y
-
 sudo apt update
 sudo apt upgrade -y
 sudo apt dist-upgrade -y
 
 sudo apt install -y \
     ack \
-    alacritty \
     apt-file \
     apt-transport-https \
     bc \
@@ -24,33 +19,52 @@ sudo apt install -y \
     build-essential \
     ca-certificates \
     cmake \
-    ctags \
     curl \
     dconf-cli \
-    # docker.io \
-    dunst \
-    emacs26 \
+    dmenu \
+    dunst \ # notifications
     exuberant-ctags \
     feh \
     flex \
     gcc \
     git \
-    gnome-tweak-tool \
     gnupg-agent \
     htop \
     libelf-dev \
+    libfontconfig1-dev \
+    libfreetype6-dev \
     libncurses5-dev \
     libssl-dev \
+    libxcb-xfixes0-dev \
+    libxkbcommon-dev
     make \
     nasm \
     nitrogen \
+    pavucontrol \
+    pkg-config \
     python3-dev \
     python3-pip \
     screenfetch \
     software-properties-common \
     tmux \
     vim \
+    vim-gtk3 \
     xclip
+
+sudo apt autoremove -y
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup override set stable
+rustup update stable
+
+# alacritty
+git clone https://github.com/alacritty/alacritty.git $HOME/src/github.com/alacritty
+PWD=$HOME/src/github.com/alacritty/alacritty; cargo build --release
+PWD=$HOME/src/github.com/alacritty/alacritty; sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+PWD=$HOME/src/github.com/alacritty/alacritty; sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+PWD=$HOME/src/github.com/alacritty/alacritty; sudo desktop-file-install extra/linux/Alacritty.desktop
+PWD=$HOME/src/github.com/alacritty/alacritty; sudo update-desktop-database
 
 # TODO
 # echo "#------------------------#"
@@ -117,14 +131,6 @@ git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 tmux # TODO must detach from session before continuing
 $HOME/.tmux/plugins/tpm/bin/install_plugins;
 tmux kill-session -t 0
-
-echo "#------------------------#"
-echo "Alacritty"
-echo "#------------------------#"
-
-mkdir -p $HOME/src/github.com/alacritty
-git clone https://github.com/alacritty/alacritty.git $HOME/src/github.com/alacritty/alacritty
-sudo tic -xe alacritty,alacritty-direct $HOME/src/github.com/alacritty/alacritty/extra/alacritty.info
 
 echo "#------------------------#"
 echo "Finishing Up"
